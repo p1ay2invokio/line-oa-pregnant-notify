@@ -1,0 +1,7 @@
+services:
+  line-pregnant:
+    build: .
+    ports:
+      - "3012:3001"
+    environment:
+      - TZ=Asia/Bangkok
