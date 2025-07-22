@@ -8,8 +8,6 @@ import 'dayjs/locale/th'
 
 dayjs.locale('th')
 
-import { Notify } from './generated/prisma/index'
-
 const app = express()
 
 app.use(express.json())
@@ -23,7 +21,7 @@ const line = new Line(token)
 const SendMessage = () => {
     return new Promise(async (resolve) => {
 
-        let users: Notify[] = await prisma.notify.findMany()
+        let users = await prisma.notify.findMany()
 
         if (users && users.length > 0) {
 

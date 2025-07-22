@@ -4,11 +4,12 @@ services:
     ports:
       - "3012:3001"
     environment:
-      - TZ=Asia/Bangkok
-      - DATABASE_URL=postgresql://play2:123456@localhost:5444/linedb?schema=public
+      TZ: Asia/Bangkok
+      DATABASE_URL: postgresql://play2:123456@db:5432/linedb?schema=public
     networks:
       - dev_network
-
+    command: >
+      sh -c "npx prisma migrate deploy && npm run start"
 
 networks:
   dev_network:
